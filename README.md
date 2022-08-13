@@ -47,13 +47,6 @@ Design of this awesome application is implemented by [Team galaxius](https://git
 
 [![Figma Design](https://img.shields.io/badge/Figma-Design-pink.svg?style=for-the-badge&logo=figma)](https://www.figma.com/file/6TPCaBtOmfXQ48bYIkpDi6/MnregaKT)
 
-#### 🌞 Light Mode
-
-![](art/figma-light-mode.png)
-
-#### 🌙 Dark Mode
-
-![](art/figma-dark-mode.png)
 
 ## Built with 🛠
 
