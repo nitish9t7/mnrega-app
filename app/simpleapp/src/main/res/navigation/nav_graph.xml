@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2022 Team GALAXIUS
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/attendancesFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="dev.galaxius.mnrega.simpleapp.view.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginFragment_to_attendancesFragment"
+            app:destination="@id/attendancesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="dev.galaxius.mnrega.simpleapp.view.home.HomeFragment"
+        android:label="Mnrega"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_attendancesFragment"
+            app:destination="@id/attendancesFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="dev.galaxius.mnrega.simpleapp.view.register.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/register_fragment">
+        <action
+            android:id="@+id/action_registerFragment_to_attendancesFragment"
+            app:destination="@id/attendancesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/attendanceDetailFragment"
+        android:name="dev.galaxius.mnrega.simpleapp.view.detail.NoteDetailFragment"
+        android:label="attendance_detail_fragment"
+        app:popUpTo="@+id/attendancesFragment"
+        tools:layout="@layout/attendance_detail_fragment">
+        <argument
+            android:name="attendanceId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/attendancesFragment"
+        android:name="dev.galaxius.mnrega.simpleapp.view.attendances.NotesFragment"
+        android:label="attendances_fragment"
+        tools:layout="@layout/attendances_fragment">
+        <action
+            android:id="@+id/action_attendancesFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_attendancesFragment_to_attendanceDetailFragment"
+            app:destination="@id/attendanceDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="attendanceId"
+                android:defaultValue="null"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_attendancesFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/attendancesFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_attendancesFragment_to_aboutFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:destination="@id/aboutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="dev.galaxius.mnrega.simpleapp.view.add.AddNoteFragment"
+        android:label="add_attendance_fragment"
+        tools:layout="@layout/add_attendance_fragment" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="dev.galaxius.mnrega.simpleapp.view.about.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+</navigation>

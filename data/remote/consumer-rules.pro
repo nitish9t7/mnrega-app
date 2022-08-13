@@ -1,0 +1,3 @@
+-keepclassmembernames class dev.galaxius.mnrega.data.remote.model.request.** { *; }
+-keepclassmembernames class dev.galaxius.mnrega.data.remote.model.response.** { *; }
+-keepclassmembernames class dev.galaxius.mnrega.core.model.** { *; }
